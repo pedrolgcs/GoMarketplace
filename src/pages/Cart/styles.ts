@@ -23,6 +23,7 @@ export const ProductContainer = styled.View`
 
 export const ProductList = styled(FlatList as new () => FlatList<Product>)`
   padding: 0 10px;
+  min-height: 100px;
 `;
 
 export const Product = styled.View`
@@ -31,7 +32,6 @@ export const Product = styled.View`
   border-radius: 5px;
   margin: 5px;
   min-height: 100px;
-  flex: 1;
   flex-direction: row;
 `;
 
