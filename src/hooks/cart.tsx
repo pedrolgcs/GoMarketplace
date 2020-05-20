@@ -67,15 +67,19 @@ const CartProvider: React.FC = ({ children }) => {
       if (productItem) {
         if (productItem.quantity <= 1) {
           setProducts(cartItens);
+          await AsyncStorage.setItem(
+            '@GoMarketplace:products',
+            JSON.stringify([...cartItens]),
+          );
         } else {
           productItem.quantity -= 1;
           setProducts([...cartItens, productItem]);
+          await AsyncStorage.setItem(
+            '@GoMarketplace:products',
+            JSON.stringify([...cartItens, productItem]),
+          );
         }
       }
-      await AsyncStorage.setItem(
-        '@GoMarketplace:products',
-        JSON.stringify(products),
-      );
     },
     [products],
   );
